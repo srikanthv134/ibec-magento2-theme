@@ -1,0 +1,6 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+  <head>
+    <!--adds OpenGraph image to CMS page-->
+    <!--<meta property="og:image" content="https://www.lerouxkitchen.com/media/lerouxkitchen-og.jpg" />-->
+  </head>
+</page>

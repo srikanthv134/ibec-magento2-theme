@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="customer_account"/>
+    <body>
+      <!--Sets title-->
+        <referenceBlock name="page.main.title">
+            <action method="setPageTitle">
+                <argument translate="true" name="title" xsi:type="string">My Dashboard</argument>
+            </action>
+        </referenceBlock>
+        <referenceContainer name="content">
+            <block class="Magento\Framework\View\Element\Template" name="customer_account_dashboard_top" as="top"/>
+            <block class="Magento\Customer\Block\Account\Dashboard\Info" name="customer_account_dashboard_info" as="info" template="account/dashboard/info.phtml" cacheable="false"/>
+            <block class="Magento\Customer\Block\Account\Dashboard\Address" name="customer_account_dashboard_address" as="address" template="account/dashboard/address.phtml" cacheable="false"/>
+        </referenceContainer>
+        <!--Removes unused links from Customer Account index. Use default.xml instead to remove on all accouint pages-->
+        <referenceBlock name="customer-account-navigation-downloadable-products-link" remove="true"/>
+        <referenceBlock name="customer-account-navigation-newsletter-subscriptions-link" remove="true"/>
+        <referenceBlock name="customer-account-navigation-my-credit-cards-link" remove="true"/>
+        <referenceBlock name="customer-account-navigation-product-reviews-link" remove="true"/>
+        <!--Adds Logout link. Use default.xml instead to add on all account pages-->
+        <referenceBlock name="customer_account_navigation">
+          <block class="Magento\Framework\View\Element\Html\Link\Current" name="customer-account-navigation-logout-link">
+            <arguments>
+              <argument name="path" xsi:type="string">customer/account/logout</argument>
+              <argument name="label" xsi:type="string">Logout</argument>
+            </arguments>
+          </block>
+        </referenceBlock>
+    </body>
+</page>

@@ -1,0 +1,78 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <!--Removes header links-->
+        <referenceContainer name="page.top">
+          <referenceBlock name="store.links" remove="true" />
+        </referenceContainer>
+        <!--Removes the Magento "Report Bugs" link-->
+        <referenceBlock name='report.bugs' remove='true'/>
+        <!--Removes Advanced Search Link-->
+        <referenceBlock name="advanced-search-link" remove="true"/>
+        <!--Removes Search Terms link in Footer-->
+        <referenceBlock name="search-term-popular-link" remove="true" />
+        <!--Removes Privacy Policy Link in Footer-->
+        <referenceBlock name="privacy-policy-link" remove="true" />
+        <!--Removes Advanced Search Link in Footer-->
+        <referenceBlock name="catalog-search-advanced-link" remove="true" />
+        <!--Removes Blog Link in Footer-->
+        <referenceBlock name="footer_blog_link" remove="true" />
+        <!--Removes FAQ Link in Footer-->
+        <referenceBlock name="footer_faq_link" remove="true" />
+        <!--Removes Orders and Returns link in Footer-->
+        <referenceBlock name="sales-guest-form-link" remove="true" />
+        <!--Moves navigation into the same container as the logo-->
+        <move element="navigation.sections" destination="header-wrapper" after="logo" />
+        <!--Removes top panel (welcome msg, sign in, create account)-->
+        <referenceContainer name="header.panel.wrapper" remove="true" />
+        <!--adds blocks/sets templates for search and account icons-->
+        <referenceContainer name="header-wrapper">
+          <block class="Magento\Framework\View\Element\Template" name="search-icon" template="Magento_Theme::search.phtml" before="-"/>
+          <block class="Magento\Framework\View\Element\Template" name="header.account" template="Magento_Theme::account.phtml" before="minicart"/>
+        </referenceContainer>
+        <!--Creates new container for locations-->
+        <referenceContainer name="footer">
+        <container name="footer.locations" htmlTag="div" htmlClass="home-locations-wrapper" after="form.subscribe" >
+          <!--grabs Locations CMS block-->
+          <block class="Magento\Cms\Block\Block" name="block_identifier">
+              <arguments>
+                  <argument name="block_id" xsi:type="string">locations</argument>
+              </arguments>
+          </block>
+        </container>
+        <!--Creates social icons container and block-->
+        <container name="footer.social" htmlClass="footer-social-links" htmlTag="div">
+          <block class="Magento\Theme\Block\Html\Footer" name="footer.social.links" template="social.phtml" />
+        </container>
+      </referenceContainer>
+      <!--Adds link to About Us to Footer-->
+      <referenceContainer name="footer_links">
+          <block class="Magento\Framework\View\Element\Template" name="about-us_link" template="Magento_Theme::about-link.phtml" before="footer_blog_link"/>
+      </referenceContainer>
+      <!--Reorders Footer-->
+      <move element="contact-us-link" destination="footer_links" after="about-us_link" />
+      <!--Adds mobile menu-->
+      <referenceBlock name="store.menu">
+        <block class="Magento\Framework\View\Element\Template" name="mobile-menu" after="-" template="Magento_Theme::mobile-menu.phtml"/>
+      </referenceBlock>
+      <!--Hides unused Advanced Content Manager block-->
+      <referenceBlock name="search.content.result" remove="true" />
+      <!--Adds Logout Link to Customer Account-->
+      <referenceBlock name="customer_account_navigation">
+        <block class="Magento\Framework\View\Element\Html\Link\Current" name="customer-account-navigation-logout-link">
+          <arguments>
+            <argument name="path" xsi:type="string">customer/account/logout</argument>
+            <argument name="label" xsi:type="string">Logout</argument>
+          </arguments>
+        </block>
+      </referenceBlock>
+      <!--Removes Unused Components from Customer Account-->
+      <referenceBlock name="customer-account-navigation-downloadable-products-link" remove="true"/>
+      <referenceBlock name="customer-account-navigation-newsletter-subscriptions-link" remove="true"/>
+      <referenceBlock name="customer-account-navigation-my-credit-cards-link" remove="true"/>
+      <referenceBlock name="customer-account-navigation-product-reviews-link" remove="true"/>
+      <referenceBlock name="customer-account-navigation-subscription-profiles-link" remove="true"/>
+      <referenceBlock name="customer-account-navigation-billing-agreements-link" remove="true"/>
+      <referenceBlock name="wishlist_sidebar" remove="true" />
+      <referenceBlock name="sale.reorder.sidebar" remove="true"/>
+    </body>
+</page>

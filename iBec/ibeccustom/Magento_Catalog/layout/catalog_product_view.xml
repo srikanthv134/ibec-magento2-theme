@@ -1,0 +1,14 @@
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+      <!--Examples of moving elements on the page around, from LeRoux-->
+        <move element="page.main.title" destination="content" after="-"/>
+        <move element="product.info.main" destination="content" after="page.main.title"/>
+        <move element="product.info.overview" destination="product.info.main" after="product.info.price"/>
+        <move element="product.info.description" destination="product-description"/>
+        <!--Remove unused features. In LeRoux, these were accomplished with an Extension-->
+        <referenceContainer name="product.info.upsell" remove="true" />
+        <referenceContainer name="catalog.product.related" remove="true" />
+        <!--removes SKU from product page-->
+        <referenceBlock name="product.info.sku" remove="true" />
+    </body>
+</page>
