@@ -24,38 +24,12 @@
         <move element="navigation.sections" destination="header-wrapper" after="logo" />
         <!--Removes top panel (welcome msg, sign in, create account)-->
         <referenceContainer name="header.panel.wrapper" remove="true" />
-        <!--adds blocks/sets templates for search and account icons-->
-        <referenceContainer name="header-wrapper">
-          <block class="Magento\Framework\View\Element\Template" name="search-icon" template="Magento_Theme::search.phtml" before="-"/>
-          <block class="Magento\Framework\View\Element\Template" name="header.account" template="Magento_Theme::account.phtml" before="minicart"/>
-        </referenceContainer>
-        <!--Creates new container for locations-->
-        <referenceContainer name="footer">
-        <container name="footer.locations" htmlTag="div" htmlClass="home-locations-wrapper" after="form.subscribe" >
-          <!--grabs Locations CMS block-->
-          <block class="Magento\Cms\Block\Block" name="block_identifier">
-              <arguments>
-                  <argument name="block_id" xsi:type="string">locations</argument>
-              </arguments>
-          </block>
-        </container>
-        <!--Creates social icons container and block-->
-        <container name="footer.social" htmlClass="footer-social-links" htmlTag="div">
-          <block class="Magento\Theme\Block\Html\Footer" name="footer.social.links" template="social.phtml" />
-        </container>
-      </referenceContainer>
       <!--Adds link to About Us to Footer-->
       <referenceContainer name="footer_links">
           <block class="Magento\Framework\View\Element\Template" name="about-us_link" template="Magento_Theme::about-link.phtml" before="footer_blog_link"/>
       </referenceContainer>
       <!--Reorders Footer-->
-      <move element="contact-us-link" destination="footer_links" after="about-us_link" />
-      <!--Adds mobile menu-->
-      <referenceBlock name="store.menu">
-        <block class="Magento\Framework\View\Element\Template" name="mobile-menu" after="-" template="Magento_Theme::mobile-menu.phtml"/>
-      </referenceBlock>
-      <!--Hides unused Advanced Content Manager block-->
-      <referenceBlock name="search.content.result" remove="true" />
+      <move element="contact-us-link" destination="footer_links" after="about-us_link" />>
       <!--Adds Logout Link to Customer Account-->
       <referenceBlock name="customer_account_navigation">
         <block class="Magento\Framework\View\Element\Html\Link\Current" name="customer-account-navigation-logout-link">
