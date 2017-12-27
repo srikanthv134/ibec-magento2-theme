@@ -22,7 +22,7 @@ This is where you should perform all site-wide layout updates. It inherits the d
 From LeRoux, I've left in some actions related to the footer that I think serve as useful demonstrations of adding new blocks (using the ```Magento\Framework\View\Element\Template``` class and linking them up with templates) and moving elements around.
 
 ## Magento_Theme/layout/default_head_blocks.xml
-Here's where you can add tags (meta, link, etc) to the <head>, site-wide.
+Here's where you can add tags (meta, link, etc) to the \<head\>, site-wide.
 
 **Note: If you want to remove instances certain tags added via default_head_blocks for a particular page, you can use the "remove" action on that page's layout file. Check out this example from Pennington and Bailes:**
 ```<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
